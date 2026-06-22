@@ -1,0 +1,111 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), 'Geist Fallback';
+  --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
+}
+
+:root {
+  color-scheme: dark;
+  /* MovieVerse Premium Dark Theme */
+  --background: #0B0F19;
+  --background-secondary: #111827;
+  --accent: #FCD34D;
+  --accent-dark: #F59E0B;
+  --text-primary: #F3F4F6;
+  --text-secondary: #D1D5DB;
+  --border-color: #374151;
+  --border-light: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  html {
+    @apply bg-[#0B0F19] text-[#F3F4F6] font-sans;
+  }
+  
+  body {
+    @apply bg-[#0B0F19] text-[#F3F4F6];
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  button, a, input, select, textarea {
+    @apply transition-all duration-200;
+  }
+}
+
+@layer components {
+  /* Glassmorphism effect */
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/5 border border-white/10 rounded-lg;
+  }
+
+  /* Card with premium styling */
+  .card-premium {
+    @apply bg-[#111827] rounded-lg border border-[#374151] overflow-hidden;
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply hover:shadow-2xl hover:scale-105 transition-all duration-200;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-[#FCD34D] to-[#F59E0B] bg-clip-text text-transparent;
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-[#0B0F19];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#374151] rounded-full hover:bg-[#4B5563];
+  }
+}
+
+/* Loading skeleton animation */
+@keyframes skeleton-loading {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  animation: skeleton-loading 2s infinite;
+  background: linear-gradient(90deg, #1F2937 25%, #111827 50%, #1F2937 75%);
+  background-size: 1000px 100%;
+}
+
+/* Fade in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.6s ease-out;
+}
